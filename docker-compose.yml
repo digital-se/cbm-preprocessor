@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  digitalse-cbm-preprocessor:
+    container_name: digitalse-cbm-preprocessor
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - '3307:8084'
+      
+networks:
+  default:
+    external: true
+    name: internal
