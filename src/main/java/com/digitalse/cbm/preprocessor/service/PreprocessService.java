@@ -1,6 +1,11 @@
 package com.digitalse.cbm.preprocessor.service;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import com.digitalse.cbm.preprocessor.enumerator.BufferedImageType;
 import com.digitalse.cbm.rabbitmqtransferenceobjects.RTOBucket;
 
@@ -14,7 +19,7 @@ public class PreprocessService {
     @Autowired
     private OpenCvService openCvService;
 
-    public RTOBucket preProcess(RTOBucket rtoBucket) {
+    public RTOBucket preProcess(RTOBucket rtoBucket) throws IOException {
         Mat image              = openCvService.imageRead(rtoBucket.getDados());
         int gaussianBlurSize   = 5; 
         int thresholdBlockSize = 15;
@@ -22,7 +27,10 @@ public class PreprocessService {
 
         BufferedImage imageResult = preProcess(image, gaussianBlurSize, thresholdBlockSize, thresholdC);
 
-        rtoBucket.setImagem_processada(imageResult);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(imageResult, "png", baos);
+        byte[] bytes = baos.toByteArray();
+        rtoBucket.setDados_processados(bytes);
 
         return rtoBucket;
     }
