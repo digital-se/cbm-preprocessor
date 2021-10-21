@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.digitalse.cbm.preprocessor.enumerator.BufferedImageType;
-import com.digitalse.cbm.rabbitmqtransferenceobjects.RTOBucket;
+import com.digitalse.cbm.preprocessor.rto.RTOBucket;
 
 import org.opencv.core.Mat;
 import org.springframework.beans.factory.annotation.Autowired;

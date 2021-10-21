@@ -26,7 +26,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class basicController {
 
     @Autowired
-    private PreprocessService ocrService;
+    private PreprocessService preprocessService;
 
     @Autowired
     private OpenCvService openCvService;
@@ -36,7 +36,7 @@ public class basicController {
             throws IOException {
         try {
             var image = openCvService.imageRead(file.getBytes());
-            var result = ocrService.preProcess(image, 3, 15, 2);
+            var result = preprocessService.preProcess(image, 3, 15, 2);
 
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             ImageIO.write(result, "png", os);

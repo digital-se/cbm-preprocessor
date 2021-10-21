@@ -2,7 +2,7 @@ package com.digitalse.cbm.preprocessor.service;
 
 import java.io.IOException;
 
-import com.digitalse.cbm.rabbitmqtransferenceobjects.RTOBucket;
+import com.digitalse.cbm.preprocessor.rto.RTOBucket;
 
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
