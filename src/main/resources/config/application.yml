@@ -3,7 +3,7 @@ server:
 
 spring:
   rabbitmq:
-    host: ${env.RABBIT_HOST}
-    port: 5672 #Paliativo até encontrar solução para converter em Integer
-    username: ${env.RABBIT_USERNAME}
-    password: ${env.RABBIT_PASSWORD}
+      host: ${RABBIT_HOST}
+      port: ${RABBIT_HOST}
+      username: ${RABBIT_USERNAME}
+      password: ${RABBIT_PASSWORD}

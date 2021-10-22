@@ -51,6 +51,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Depencency for using dotenv -->
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>dotenv-java</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
 		<!-- opencv -->
 		<dependency>
 			<groupId>org.openpnp</groupId>
